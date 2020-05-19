@@ -1,10 +1,9 @@
 # pick.up
 
-An web based tracking system that will enable businesses and customers to quickly manage and track their curbside pickup orders effortlessly.
+A web based tracking system that will enable businesses and customers to quickly manage and track their curbside pickup orders effortlessly.
 
 ## Features
 
-* Order tracking
 * Order tracking
 * Get notified when your curbside pickup is ready
 * Know exactly where to wait for your order once you arrive at the store
