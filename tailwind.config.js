@@ -8,6 +8,8 @@ module.exports = {
       primary: '#083D77',
     },
   },
-  variants: {},
+  variants: {
+    borderWidth: ['responsive', 'last', 'hover', 'focus', 'active'],
+  },
   plugins: [],
 };
