@@ -4,8 +4,10 @@ module.exports = {
       display: ['Helvetica', 'sans-serif'],
       body: ['Helvetica-Neue', 'sans-serif'],
     },
-    colors: {
-      primary: '#083D77',
+    extend: {
+      colors: {
+        primary: '#083D77',
+      },
     },
   },
   variants: {
