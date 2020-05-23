@@ -1,13 +1,12 @@
 import React from 'react';
 
 import Header from './Header/Header';
-import Navigation from './Navigation/Navigation';
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div>
       <Header />
-      <Navigation />
+      <main>{props.children}</main>
     </div>
   );
 };

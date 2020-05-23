@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Logo from './Logo';
-import HamburgerIcon from './HamburgerIcon';
+import Logo from './HeaderItem/Logo';
+import HamburgerIcon from './HeaderItem/HamburgerIcon';
 
 const Header = () => {
   return (
