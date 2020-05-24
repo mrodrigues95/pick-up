@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './css/main.css';
 
-import Home from './components/Home/Home';
+import Home from './components/Orders/Orders';
 import Deploy from './components/Deploy/Deploy';
 
 const App = () => {

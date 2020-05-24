@@ -4,9 +4,9 @@ import Layout from '../Layout';
 import Navigation from '../Navigation/Navigation';
 import Card from '../UI/Card';
 import Input from '../UI/Input';
-import OrderList from '../UI/Orders/OrderList';
+import OrderList from './OrderList/OrderList';
 
-const Home = () => {
+const Orders = () => {
   return (
     <Layout>
       <Navigation />
@@ -33,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Orders;
