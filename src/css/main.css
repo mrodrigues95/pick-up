@@ -6563,11 +6563,11 @@ video {
 }
 
 .font-display {
-  font-family: Helvetica, sans-serif;
+  font-family: Arvo, serif;
 }
 
 .font-body {
-  font-family: Helvetica-Neue, sans-serif;
+  font-family: Arvo, serif;
 }
 
 .font-hairline {
@@ -20913,11 +20913,11 @@ video {
   }
 
   .sm\:font-display {
-    font-family: Helvetica, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .sm\:font-body {
-    font-family: Helvetica-Neue, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .sm\:font-hairline {
@@ -35264,11 +35264,11 @@ video {
   }
 
   .md\:font-display {
-    font-family: Helvetica, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .md\:font-body {
-    font-family: Helvetica-Neue, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .md\:font-hairline {
@@ -49615,11 +49615,11 @@ video {
   }
 
   .lg\:font-display {
-    font-family: Helvetica, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .lg\:font-body {
-    font-family: Helvetica-Neue, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .lg\:font-hairline {
@@ -63966,11 +63966,11 @@ video {
   }
 
   .xl\:font-display {
-    font-family: Helvetica, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .xl\:font-body {
-    font-family: Helvetica-Neue, sans-serif;
+    font-family: Arvo, serif;
   }
 
   .xl\:font-hairline {

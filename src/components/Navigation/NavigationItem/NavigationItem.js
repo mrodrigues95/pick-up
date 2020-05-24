@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 const NavigationItem = (props) => {
   return (
-    <li className="p-3">
+    <li className="flex items-center p-3">
       <svg
-        className="inline-flex"
         width="16"
         height="16"
         fill="none"

@@ -1,8 +1,8 @@
 module.exports = {
   theme: {
     fontFamily: {
-      display: ['Helvetica', 'sans-serif'],
-      body: ['Helvetica-Neue', 'sans-serif'],
+      display: ['Arvo', 'serif'],
+      body: ['Arvo', 'serif'],
     },
     extend: {
       colors: {

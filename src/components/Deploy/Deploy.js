@@ -8,7 +8,9 @@ const Deploy = () => {
   return (
     <Layout>
       <Navigation />
-      <Form />
+      <Form>
+        <h1 className="text-2xl font-semibold">Deploy an order</h1>
+      </Form>
     </Layout>
   );
 };
