@@ -14,7 +14,7 @@ const NavigationItem = (props) => {
         <path fill="#F4D35E" d="M0 0h16v16H0z" />
       </svg>
       <Link
-        className="pl-1 hover:text-primary active:border-b-2 active:border-primary"
+        className="pl-1 text-orderHeader font-medium hover:border-primary hover:text-primary active:border-b-2 active:border-primary"
         to={props.link}
       >
         {props.children}
