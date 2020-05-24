@@ -4,6 +4,8 @@ import './css/main.css';
 import Layout from './components/Layout';
 import Navigation from './components/Navigation/Navigation';
 import Card from './components/UI/Card';
+import Input from './components/UI/Input';
+import OrderList from './components/UI/Orders/OrderList';
 
 const App = () => {
   return (
@@ -21,6 +23,12 @@ const App = () => {
             <path d="M68 12.16c0-1.66-1.35-3-3-3h-6.51v3.66c0 2.21-1.79 4-4 4h-4.25c-2.2 0-4-1.79-4-4V9.16H23.75v3.66c0 2.21-1.8 4-4 4H15.5c-2.21 0-4-1.79-4-4V9.16H5c-1.66 0-3 1.34-3 3v10.19h66V12.16zM5 68.51h59.99c1.65 0 3-1.35 3-3V24.35H2v41.16c0 1.65 1.35 3 3 3zm44.54-38.66c0-1.11.89-2 2-2h5.54a2 2 0 012 2v5.54c0 1.1-.9 2-2 2h-5.54a2 2 0 01-2-2v-5.54zm0 12.74a2 2 0 012-2h5.54c1.1 0 2 .9 2 2v5.55c0 1.1-.9 2-2 2h-5.54a2 2 0 01-2-2v-5.55zM36.66 29.85a2 2 0 012-2h5.54c1.11 0 2 .89 2 2v5.54a2 2 0 01-2 2h-5.54c-1.1 0-2-.9-2-2v-5.54zm0 12.74c0-1.1.9-2 2-2h5.54a2 2 0 012 2v5.55a2 2 0 01-2 2h-5.54c-1.1 0-2-.9-2-2v-5.55zM23.79 29.85c0-1.11.89-2 2-2h5.54a2 2 0 012 2v5.54c0 1.1-.9 2-2 2h-5.54a2 2 0 01-2-2v-5.54zm0 12.74a2 2 0 012-2h5.54c1.1 0 2 .9 2 2v5.55c0 1.1-.9 2-2 2h-5.54a2 2 0 01-2-2v-5.55zm0 12.75a2 2 0 012-2h5.54c1.1 0 2 .9 2 2v5.54a2 2 0 01-2 2h-5.54c-1.11 0-2-.89-2-2v-5.54zM11.04 29.72c0-1.1.9-2 2-2h5.54c1.1 0 2 .9 2 2v5.54c0 1.1-.9 2-2 2h-5.54c-1.1 0-2-.9-2-2v-5.54zm-.13 12.87c0-1.1.9-2 2-2h5.54a2 2 0 012 2v5.55a2 2 0 01-2 2h-5.54c-1.1 0-2-.9-2-2v-5.55zm0 12.75c0-1.1.9-2 2-2h5.54a2 2 0 012 2v5.54c0 1.11-.89 2-2 2h-5.54a2 2 0 01-2-2v-5.54z" />
           </svg>
         </button>
+      </Card>
+      <Card>
+        <div className="w-full">
+          <Input placeholder="Filter" />
+          <OrderList />
+        </div>
       </Card>
     </Layout>
   );
