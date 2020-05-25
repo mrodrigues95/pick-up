@@ -7,6 +7,8 @@ const OrderListItem = () => {
     <>
       <div className="flex justify-between items-center w-full py-2 ml-4">
         <strong className="text-sm">FA729KD9KMS92DNL21</strong>
+        <strong className="hidden sm:block">John Doe</strong>
+        <strong className="hidden sm:block">10:30 A.M.</strong>
         <svg
           className="mr-12"
           width="16"

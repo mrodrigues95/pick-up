@@ -9,10 +9,10 @@ import PreviousDay from './NextPreviousButton/PreviousDay';
 const OrderListItems = () => {
   return (
     <div>
-      <div className="flex justify-between p-2 pb-1">
+      <div className="flex justify-between p-2 pb-1 mt-2">
         <OrderListHeader>Order</OrderListHeader>
-        <OrderListHeader className="hidden">Customer</OrderListHeader>
-        <OrderListHeader className="hidden">Time</OrderListHeader>
+        <OrderListHeader className="hidden sm:block mr-0 ml-32">Customer</OrderListHeader>
+        <OrderListHeader className="hidden sm:block mr-8">Time</OrderListHeader>
         <OrderListHeader>Status</OrderListHeader>
       </div>
       <div>

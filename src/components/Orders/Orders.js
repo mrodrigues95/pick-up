@@ -25,7 +25,7 @@ const Orders = () => {
       </Card>
       <Card>
         <div className="w-full">
-          <Input placeholder="Filter" />
+          <Input placeholder="Filter" className="max-w-md" />
           <OrderList />
         </div>
       </Card>
