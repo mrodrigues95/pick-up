@@ -17,33 +17,29 @@ const Deploy = () => {
       <Navigation />
       <Form>
         <h1 className="text-2xl font-semibold">Deploy an order</h1>
-        <p className="text-primaryText mb-6">
-          Order tracking
-        </p>
+        <p className="text-primaryText mb-6">Prepare your order for tracking</p>
         <label className="font-semibold">
           Order Number
           <Input placeholder="Order Number" />
         </label>
-        <label className="font-semibold mt-2">
+        <label className="font-semibold mt-4">
           Current Status
           <div>
             <Select />
           </div>
         </label>
-        <label className="font-semibold mt-2">
+        <label className="font-semibold mt-4">
           Date
           <div>
             <ReactDatePicker
+              className="w-full border rounded-md p-1"
+              showPopperArrow={false}
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              showTimeSelect
-              timeIntervals={15}
-              timeCaption="time"
-              dateFormat="MMMM d, yyyy h:mm aa"
+              onChange={date => setStartDate(date)}
             />
           </div>
         </label>
-        <label className="font-semibold mt-2 mb-10">
+        <label className="font-semibold mt-4 mb-10">
           Author
           <div>
             <Select />
