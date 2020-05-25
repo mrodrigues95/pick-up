@@ -2,7 +2,7 @@ import React from 'react';
 
 const Select = (props) => {
   return (
-    <select className="w-full border rounded-md p-1">
+    <select className="w-full border rounded-md p-1" onChange={props.changed}>
       {props.options &&
         props.options.map((name, index) => (
           <option key={index} value={name}>

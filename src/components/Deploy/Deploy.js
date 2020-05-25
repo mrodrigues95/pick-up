@@ -10,10 +10,34 @@ import Button from '../UI/Button';
 import ReactDatePicker from 'react-datepicker';
 
 const Deploy = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const [orderForm, setOrderForm] = useState({ date: new Date()});
 
   const orderStatus = ['Processing', 'Quality Check', 'Ready'];
   const employeeNames = ['Marcus', 'Joe', 'Jack'];
+
+  // Handle onChange events for input elements.
+  const inputChangedHandler = (e) => {
+    setOrderForm({
+      ...orderForm,
+      orderNumber: e.target.value,
+    });
+  };
+
+  // Handle onChange events for select elements.
+  const selectChangedHandler = (selectedOption, name) => {
+    console.log(name);
+    if (name === 'orderStatus') {
+      setOrderForm({
+        ...orderForm,
+        orderStatus: selectedOption.target.value,
+      });
+    } else {
+      setOrderForm({
+        ...orderForm,
+        author: selectedOption.target.value,
+      });
+    }
+  };
 
   return (
     <Layout>
@@ -23,12 +47,18 @@ const Deploy = () => {
         <p className="text-primaryText mb-6">Prepare your order for tracking</p>
         <label className="font-semibold">
           Order Number
-          <Input placeholder="Order Number" />
+          <Input
+            placeholder="Order Number"
+            changed={(event) => inputChangedHandler(event)}
+          />
         </label>
         <label className="font-semibold mt-4">
           Current Status
           <div>
-            <Select options={orderStatus} />
+            <Select
+              options={orderStatus}
+              changed={(option) => selectChangedHandler(option, 'orderStatus')}
+            />
           </div>
         </label>
         <label className="font-semibold mt-4">
@@ -37,15 +67,18 @@ const Deploy = () => {
             <ReactDatePicker
               className="w-full border rounded-md p-1"
               showPopperArrow={false}
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              selected={orderForm.date}
+              onChange={(date) => setOrderForm({ ...orderForm, date: date })}
             />
           </div>
         </label>
         <label className="font-semibold mt-4 mb-10">
           Author
           <div>
-            <Select options={employeeNames} />
+            <Select
+              options={employeeNames}
+              changed={(option) => selectChangedHandler(option, 'author')}
+            />
           </div>
         </label>
         <Button>Track</Button>
