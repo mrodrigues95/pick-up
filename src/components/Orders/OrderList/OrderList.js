@@ -11,6 +11,8 @@ const OrderListItems = () => {
     <div>
       <div className="flex justify-between p-2 pb-1">
         <OrderListHeader>Order</OrderListHeader>
+        <OrderListHeader className="hidden">Customer</OrderListHeader>
+        <OrderListHeader className="hidden">Time</OrderListHeader>
         <OrderListHeader>Status</OrderListHeader>
       </div>
       <div>
