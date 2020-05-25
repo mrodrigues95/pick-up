@@ -10,26 +10,32 @@ import Button from '../UI/Button';
 import ReactDatePicker from 'react-datepicker';
 
 const Deploy = () => {
-  const [orderForm, setOrderForm] = useState({ date: new Date()});
+  const [orderForm, setOrderForm] = useState({ date: new Date() });
 
-  const orderStatus = ['Processing', 'Quality Check', 'Ready'];
+  const currentStatus = ['Processing', 'Quality Check', 'Ready'];
   const employeeNames = ['Marcus', 'Joe', 'Jack'];
 
   // Handle onChange events for input elements.
-  const inputChangedHandler = (e) => {
-    setOrderForm({
-      ...orderForm,
-      orderNumber: e.target.value,
-    });
+  const inputChangedHandler = (e, inputName) => {
+    if (inputName === 'orderNumber') {
+      setOrderForm({
+        ...orderForm,
+        orderNumber: e.target.value,
+      });
+    } else if (inputName === 'customerName') {
+      setOrderForm({
+        ...orderForm,
+        customerName: e.target.value,
+      });
+    }
   };
 
   // Handle onChange events for select elements.
-  const selectChangedHandler = (selectedOption, name) => {
-    console.log(name);
-    if (name === 'orderStatus') {
+  const selectChangedHandler = (selectedOption, selectName) => {
+    if (selectName === 'currentStatus') {
       setOrderForm({
         ...orderForm,
-        orderStatus: selectedOption.target.value,
+        currentStatus: selectedOption.target.value,
       });
     } else {
       setOrderForm({
@@ -49,15 +55,24 @@ const Deploy = () => {
           Order Number
           <Input
             placeholder="Order Number"
-            changed={(event) => inputChangedHandler(event)}
+            changed={(event) => inputChangedHandler(event, 'orderNumber')}
+          />
+        </label>
+        <label className="font-semibold mt-4">
+          Customer Name
+          <Input
+            placeholder="Customer Name"
+            changed={(event) => inputChangedHandler(event, 'customerName')}
           />
         </label>
         <label className="font-semibold mt-4">
           Current Status
           <div>
             <Select
-              options={orderStatus}
-              changed={(option) => selectChangedHandler(option, 'orderStatus')}
+              options={currentStatus}
+              changed={(option) =>
+                selectChangedHandler(option, 'currentStatus')
+              }
             />
           </div>
         </label>
@@ -69,6 +84,7 @@ const Deploy = () => {
               showPopperArrow={false}
               selected={orderForm.date}
               onChange={(date) => setOrderForm({ ...orderForm, date: date })}
+              dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>
         </label>

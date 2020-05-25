@@ -12,8 +12,8 @@ const NextDay = () => {
         <path
           d="M2.074 14.963l9.877-5.95-9.877-5.95"
           stroke="#AEADAD"
-          stroke-opacity=".94"
-          stroke-width="4"
+          strokeOpacity=".94"
+          strokeWidth="4"
         />
       </svg>
     </button>
