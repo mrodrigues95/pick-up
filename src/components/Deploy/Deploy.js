@@ -12,6 +12,9 @@ import ReactDatePicker from 'react-datepicker';
 const Deploy = () => {
   const [startDate, setStartDate] = useState(new Date());
 
+  const orderStatus = ['Processing', 'Quality Check', 'Ready'];
+  const employeeNames = ['Marcus', 'Joe', 'Jack'];
+
   return (
     <Layout>
       <Navigation />
@@ -25,7 +28,7 @@ const Deploy = () => {
         <label className="font-semibold mt-4">
           Current Status
           <div>
-            <Select />
+            <Select options={orderStatus} />
           </div>
         </label>
         <label className="font-semibold mt-4">
@@ -35,14 +38,14 @@ const Deploy = () => {
               className="w-full border rounded-md p-1"
               showPopperArrow={false}
               selected={startDate}
-              onChange={date => setStartDate(date)}
+              onChange={(date) => setStartDate(date)}
             />
           </div>
         </label>
         <label className="font-semibold mt-4 mb-10">
           Author
           <div>
-            <Select />
+            <Select options={employeeNames} />
           </div>
         </label>
         <Button>Track</Button>
