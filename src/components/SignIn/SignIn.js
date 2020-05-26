@@ -21,12 +21,12 @@ const SignIn = () => {
             </h2>
             <p className="text-white">
               Or{' '}
-              <Link to="/register" className="text-sm text-primaryButton font-hairline">
+              <Link to="/signup" className="text-sm text-primaryButton font-hairline">
                 register for a free one today
               </Link>
             </p>
           </div>
-          <Form formStyle={'signIn'}>
+          <Form formStyle={'home'}>
             <div className="mt-2">
               <Input placeholder="Email"></Input>
             </div>

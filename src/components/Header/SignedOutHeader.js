@@ -7,6 +7,16 @@ const SignedOutHeader = () => {
   let navLink;
 
   switch (window.location.pathname) {
+    case '/signup':
+      navLink = (
+        <NavLink
+          className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4"
+          to="/"
+        >
+          Home
+        </NavLink>
+      );
+      break;
     case '/signin':
       navLink = (
         <NavLink
