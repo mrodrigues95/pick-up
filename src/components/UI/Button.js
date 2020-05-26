@@ -1,8 +1,13 @@
 import React from 'react';
 
 const Button = (props) => {
+    const VARIANTS = {
+        primary: 'bg-black text-white text-center rounded-md',
+        default: 'bg-primary text-white text-center rounded-md p-2'
+    }
+
     return (
-    <button className="bg-primary text-white text-center rounded-md p-2">{props.children}</button>
+    <button className={props.defaultStyle ? VARIANTS.default : VARIANTS.primary}>{props.children}</button>
     );
 }
 
