@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <Layout isAuthenticated={isAuth}>
-      <div className="flex flex-col w-full max-w-xl p-3 mt-48 m-auto">
+      <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">
         <div className="flex">
           <Logo />
           <h1 className="text-4xl text-white ml-4">pick.up</h1>
@@ -20,7 +20,9 @@ const Home = () => {
             <Input placeholder="Enter your unique PIN" />
           </div>
           <div className="ml-auto">
-            <Button defaultStyle={false}>View Order</Button>
+            <Button defaultStyle={false}>
+              View Order
+            </Button>
           </div>
         </form>
       </div>

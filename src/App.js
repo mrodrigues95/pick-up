@@ -5,19 +5,15 @@ import './css/main.css';
 import Home from './components/Home/Home';
 import Orders from './components/Orders/Orders';
 import Deploy from './components/Deploy/Deploy';
+import SignIn from './components/SignIn/SignIn';
 
 const App = () => {
   return (
     <Switch>
-      <Route path="/orders">
-        <Orders />
-      </Route>
-      <Route path="/deploy">
-        <Deploy />
-      </Route>
-      <Route path="/">
-        <Home />
-      </Route>
+      <Route path="/signin" component={SignIn} />
+      <Route path="/orders" component={Orders} />
+      <Route path="/deploy" component={Deploy} />
+      <Route path="/" component={Home} />
     </Switch>
   );
 };
