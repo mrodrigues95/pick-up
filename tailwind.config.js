@@ -9,6 +9,7 @@ module.exports = {
         primary: '#083D77',
         body: '#F4F4F4',
         primaryText: '#626262',
+        primaryButton: '#DA4167'
       },
     },
   },

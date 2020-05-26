@@ -9,7 +9,7 @@ const SignedOutHeader = () => {
       <nav className="bg-primary">
         <div className="flex justify-between items-center p-3">
           <Logo />
-          <Button defaultStyle={true}>asd</Button>
+          <Button defaultStyle={false}>Sign In</Button>
         </div>
       </nav>
     </header>
