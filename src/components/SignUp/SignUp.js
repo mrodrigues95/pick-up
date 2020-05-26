@@ -9,6 +9,7 @@ import Logo from './../Header/HeaderItem/Logo';
 const SignUp = () => {
   const isAuth = false;
 
+  // TODO: Add a confirm password input and validate it.
   return (
     <Layout isAuthenticated={isAuth}>
       <div className="flex flex-col items-center mt-40">

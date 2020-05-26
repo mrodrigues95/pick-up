@@ -8,6 +8,7 @@ import Button from '../UI/Button';
 const Home = () => {
   const isAuth = false;
 
+  // TODO: Fix the logo SVG sizing.
   return (
     <Layout isAuthenticated={isAuth}>
       <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">

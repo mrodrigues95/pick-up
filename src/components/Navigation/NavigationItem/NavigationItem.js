@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavigationItem = (props) => {
+  // TODO: Make the text color and border active state persist even after clicked.
   return (
     <li className="flex items-center p-3 mb-1">
       <svg
