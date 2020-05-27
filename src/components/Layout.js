@@ -4,6 +4,8 @@ import Header from './Header/Header';
 import SignedOutHeader from './Header/SignedOutHeader';
 
 const Layout = (props) => {
+  // TODO: change this to check for the currentUser in our AuthContext
+  // instead of passing a isAuthenticated prop.
   let header = (
     <div className="w-screen h-screen bg-body">
       <Header />

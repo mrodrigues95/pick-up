@@ -7,8 +7,9 @@ import Input from '../UI/Input';
 import OrderList from './OrderList/OrderList';
 
 const Orders = () => {
+  // 
   return (
-    <Layout>
+    <Layout isAuthenticated={true}>
       <Navigation />
       <Card>
         <h1 className="text-2xl font-semibold">Today</h1>
