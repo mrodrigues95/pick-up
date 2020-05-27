@@ -12,6 +12,7 @@ const Form = (props) => {
       className={
         props.formStyle === 'home' ? VARIANTS.home : VARIANTS.default
       }
+      onSubmit={props.onSubmit}
     >
       {props.children}
     </form>

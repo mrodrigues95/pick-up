@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './css/main.css';
 
 import Home from './components/Home/Home';
@@ -7,16 +7,20 @@ import Orders from './components/Orders/Orders';
 import Deploy from './components/Deploy/Deploy';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import PrivateRoute from './components/Auth/PrivateRoute';
+import { AuthProvider } from './components/Auth/Auth';
 
 const App = () => {
   return (
-    <Switch>
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/orders" component={Orders} />
-      <Route path="/deploy" component={Deploy} />
-      <Route path="/" component={Home} />
-    </Switch>
+    <AuthProvider>
+      <Router>
+        <PrivateRoute exact path="/" component={Home} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/orders" component={Orders} />
+        <Route exact path="/deploy" component={Deploy} />
+      </Router>
+    </AuthProvider>
   );
 };
 

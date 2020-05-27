@@ -14,6 +14,7 @@ const Button = (props) => {
   return (
     <button
       className={props.defaultStyle ? VARIANTS.default : VARIANTS.primary}
+      type={props.type}
       onClick={props.onClick}
     >
       {props.children}

@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
+import { withRouter, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import app from '../../base';
 
 import Layout from './../Layout';
 import Form from './../UI/Form';
 import Input from './../UI/Input';
 import Button from './../UI/Button';
 import Logo from '../Header/HeaderItem/Logo';
+import { AuthContext } from './../Auth/Auth';
 
-const SignIn = () => {
+const SignIn = ({ history }) => {
   const isAuth = false;
+
+  const signInHandler = useCallback(
+    async (event) => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push('/');
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [history]
+  );
+  
+  // If we have a currentUser, redirect them to the Orders component.
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) {
+    return <Redirect to="/orders" />;
+  }
 
   return (
     <Layout isAuthenticated={isAuth}>
@@ -21,17 +47,24 @@ const SignIn = () => {
             </h2>
             <p className="text-white">
               Or{' '}
-              <Link to="/signup" className="text-sm text-primaryButton font-hairline">
+              <Link
+                to="/signup"
+                className="text-sm text-primaryButton font-hairline"
+              >
                 register for a free one today
               </Link>
             </p>
           </div>
-          <Form formStyle={'home'}>
+          <Form formStyle="home" onSubmit={signInHandler}>
             <div className="mt-2">
-              <Input placeholder="Email"></Input>
+              <Input name="email" type="email" placeholder="Email"></Input>
             </div>
             <div className="mt-2">
-              <Input placeholder="Password"></Input>
+              <Input
+                name="password"
+                type="password"
+                placeholder="Password"
+              ></Input>
             </div>
             <div className="mt-2">
               <Button classes={'w-full'}>Sign In</Button>
@@ -43,4 +76,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default withRouter(SignIn);
