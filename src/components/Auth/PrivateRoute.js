@@ -18,7 +18,7 @@ const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
           <RouteComponent {...routeProps} />
         ) : (
           // Otherwise, redirect to sign in.
-          <Redirect to={'/signin'} />
+          <Redirect to={'/'} />
         )
       }
     />

@@ -46,7 +46,7 @@ const Deploy = () => {
   };
 
   return (
-    <Layout>
+    <Layout isAuthenticated={true}>
       <Navigation />
       <Form>
         <h1 className="text-2xl font-semibold">Deploy an order</h1>
@@ -97,7 +97,7 @@ const Deploy = () => {
             />
           </div>
         </label>
-        <Button>Track</Button>
+        <Button defaultStyle={true}>Track</Button>
       </Form>
     </Layout>
   );

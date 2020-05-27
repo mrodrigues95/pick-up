@@ -21,7 +21,7 @@ const SignUp = ({ history }) => {
         await app
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
-        history.push('/');
+        history.push('/orders');
       } catch (error) {
         console.log(error);
       }

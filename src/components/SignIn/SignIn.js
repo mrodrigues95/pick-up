@@ -22,16 +22,16 @@ const SignIn = ({ history }) => {
         await app
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push('/');
+        history.push('/orders');
       } catch (error) {
         console.log(error);
       }
     },
     [history]
   );
-  
-  // If we have a currentUser, redirect them to the Orders component.
   const { currentUser } = useContext(AuthContext);
+
+  // If we have a currentUser, redirect them to the Orders component.
   if (currentUser) {
     return <Redirect to="/orders" />;
   }
