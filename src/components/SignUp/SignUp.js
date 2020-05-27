@@ -29,7 +29,7 @@ const SignUp = ({ history }) => {
     [history]
   );
 
-  // TODO: Add a confirm password input and validate it.
+  // TODO: Add validation and a confirm password input.
   return (
     <Layout isAuthenticated={isAuth}>
       <div className="flex flex-col items-center mt-40">

@@ -7,12 +7,21 @@ export const AuthContext = React.createContext();
 // current authentication state and information.
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [pending, setPending] = useState(true);
 
   // Monitor any changes to user authentication.
   // E.g. signed in, signed out, token expiration, etc.
   useEffect(() => {
-    app.auth().onAuthStateChanged(setCurrentUser);
+    app.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setPending(false);
+    });
   }, []);
+
+  // TODO: Show a spinner instead.
+  if (pending) {
+    return <>Loading...</>
+  }
 
   return (
     <AuthContext.Provider value={{ currentUser }}>

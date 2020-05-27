@@ -29,13 +29,15 @@ const SignIn = ({ history }) => {
     },
     [history]
   );
-  const { currentUser } = useContext(AuthContext);
 
+  const { currentUser } = useContext(AuthContext);
+  
   // If we have a currentUser, redirect them to the Orders component.
   if (currentUser) {
     return <Redirect to="/orders" />;
   }
 
+  // TODO: Add validation.
   return (
     <Layout isAuthenticated={isAuth}>
       <div className="flex flex-col items-center mt-40">
