@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import app from '../../base';
+import firebase from '../../firebase';
 
 import Layout from './../Layout';
 import Form from './../UI/Form';
@@ -11,6 +11,7 @@ import Logo from '../Header/HeaderItem/Logo';
 import { AuthContext } from './../Auth/Auth';
 
 const SignIn = ({ history }) => {
+  // TODO: use currentUser from our context instead of this.
   const isAuth = false;
 
   const signInHandler = useCallback(
@@ -19,7 +20,7 @@ const SignIn = ({ history }) => {
       const { email, password } = event.target.elements;
 
       try {
-        await app
+        await firebase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push('/orders');

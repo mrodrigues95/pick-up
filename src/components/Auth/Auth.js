@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import app from '../../base';
+import firebase from '../../firebase';
 
 export const AuthContext = React.createContext();
 
@@ -9,10 +9,10 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
 
-  // Monitor any changes to user authentication.
+  // Observe any changes to user authentication.
   // E.g. signed in, signed out, token expiration, etc.
   useEffect(() => {
-    app.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user);
       setPending(false);
     });

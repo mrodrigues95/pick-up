@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import app from '../../base';
+import firebase from '../../firebase';
 
 import Layout from '../Layout';
 import Form from '../UI/Form';
@@ -18,7 +18,7 @@ const SignUp = ({ history }) => {
       const { email, password } = event.target.elements;
 
       try {
-        await app
+        await firebase
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
         history.push('/orders');
@@ -30,6 +30,8 @@ const SignUp = ({ history }) => {
   );
 
   // TODO: Add validation and a confirm password input.
+  // Also, is it possible to add another field to Firebase sign up so
+  // we can also add the company name?
   return (
     <Layout isAuthenticated={isAuth}>
       <div className="flex flex-col items-center mt-40">

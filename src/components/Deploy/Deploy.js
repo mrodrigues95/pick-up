@@ -8,12 +8,19 @@ import Input from '../UI/Input';
 import Select from '../UI/Select';
 import Button from '../UI/Button';
 import ReactDatePicker from 'react-datepicker';
+// import firebase from '../../firebase';
 
 const Deploy = () => {
   const [orderForm, setOrderForm] = useState({ date: new Date() });
 
   const currentStatus = ['Processing', 'Quality Check', 'Ready'];
   const employeeNames = ['Marcus', 'Joe', 'Jack'];
+
+  // const onDeployOrder = () => {
+  //   const db = firebase.firestore();
+
+
+  // }
 
   // Handle onChange events for input elements.
   const inputChangedHandler = (e, inputName) => {
@@ -45,6 +52,7 @@ const Deploy = () => {
     }
   };
 
+  // TODO: Add validation.
   return (
     <Layout isAuthenticated={true}>
       <Navigation />
@@ -55,6 +63,7 @@ const Deploy = () => {
           Order Number
           <Input
             placeholder="Order Number"
+            value={orderForm.orderNumber}
             changed={(event) => inputChangedHandler(event, 'orderNumber')}
           />
         </label>
@@ -62,6 +71,7 @@ const Deploy = () => {
           Customer Name
           <Input
             placeholder="Customer Name"
+            value={orderForm.customerName}
             changed={(event) => inputChangedHandler(event, 'customerName')}
           />
         </label>
@@ -70,6 +80,7 @@ const Deploy = () => {
           <div>
             <Select
               options={currentStatus}
+              value={orderForm.currentStatus}
               changed={(option) =>
                 selectChangedHandler(option, 'currentStatus')
               }
@@ -83,6 +94,7 @@ const Deploy = () => {
               className="w-full border rounded-md p-1"
               showPopperArrow={false}
               selected={orderForm.date}
+              value={orderForm.date}
               onChange={(date) => setOrderForm({ ...orderForm, date: date })}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
@@ -93,6 +105,7 @@ const Deploy = () => {
           <div>
             <Select
               options={employeeNames}
+              value={orderForm.author}
               changed={(option) => selectChangedHandler(option, 'author')}
             />
           </div>

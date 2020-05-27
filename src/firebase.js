@@ -1,8 +1,9 @@
-import * as firebase from 'firebase/app';
+import * as fb from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore'
 
 // Initialize Firebase.
-const app = firebase.initializeApp({
+const firebase = fb.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
@@ -13,4 +14,4 @@ const app = firebase.initializeApp({
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 });
 
-export default app;
+export default firebase;
