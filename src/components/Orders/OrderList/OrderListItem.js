@@ -14,7 +14,7 @@ const OrderListItem = (props) => {
     const date = timestamp.toDate();
     return moment(date, 'DD/MM/YYYY', true).format('LT');
   };
-
+  
   let statusSVG;
   switch (props.order.status) {
     case 'Ready':
@@ -30,12 +30,11 @@ const OrderListItem = (props) => {
       break;
   }
 
-  // TODO: Fix styling and spacing between each header item.
   return (
     <>
       <div className="flex justify-between items-center w-full py-2 ml-4">
         <strong>{props.order.orderNumber}</strong>
-        <strong className="hidden sm:block">{props.order.customer}</strong>
+        <strong className="hidden sm:block">{props.order.customerName}</strong>
         <strong className="hidden sm:block">
           {convertFirestoreTimestampToDateObject(props.order.time)}
         </strong>

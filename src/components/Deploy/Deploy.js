@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Layout from '../Layout';
@@ -8,19 +8,35 @@ import Input from '../UI/Input';
 import Select from '../UI/Select';
 import Button from '../UI/Button';
 import ReactDatePicker from 'react-datepicker';
-// import firebase from '../../firebase';
+import firebase from '../../firebase';
+import { AuthContext } from './../Auth/Auth';
 
-const Deploy = () => {
-  const [orderForm, setOrderForm] = useState({ date: new Date() });
+const Deploy = ({ history }) => {
+  const [orderForm, setOrderForm] = useState({
+    currentStatus: 'Processing',
+    time: new Date(),
+    author: 'Marcus',
+  });
 
   const currentStatus = ['Processing', 'Quality Check', 'Ready'];
   const employeeNames = ['Marcus', 'Joe', 'Jack'];
 
-  // const onDeployOrder = () => {
-  //   const db = firebase.firestore();
+  const { currentUser } = useContext(AuthContext);
 
-
-  // }
+  const onDeployOrder = (event) => {
+    event.preventDefault();
+    const db = firebase.firestore();
+    db.collection(`users/${currentUser.email}/orders`)
+      .add({
+        orderNumber: orderForm.orderNumber,
+        customerName: orderForm.customerName,
+        status: orderForm.currentStatus,
+        time: orderForm.time,
+        author: orderForm.author,
+      })
+      .then(history.push('/orders'))
+      .catch((error) => console.log(error));
+  };
 
   // Handle onChange events for input elements.
   const inputChangedHandler = (e, inputName) => {
@@ -56,14 +72,14 @@ const Deploy = () => {
   return (
     <Layout isAuthenticated={true}>
       <Navigation />
-      <Form>
+      <Form onSubmit={onDeployOrder}>
         <h1 className="text-2xl font-semibold">Deploy an order</h1>
         <p className="text-primaryText mb-6">Prepare your order for tracking</p>
         <label className="font-semibold">
           Order Number
           <Input
             placeholder="Order Number"
-            value={orderForm.orderNumber}
+            value={orderForm.orderNumber ?? ''}
             changed={(event) => inputChangedHandler(event, 'orderNumber')}
           />
         </label>
@@ -71,7 +87,7 @@ const Deploy = () => {
           Customer Name
           <Input
             placeholder="Customer Name"
-            value={orderForm.customerName}
+            value={orderForm.customerName ?? ''}
             changed={(event) => inputChangedHandler(event, 'customerName')}
           />
         </label>

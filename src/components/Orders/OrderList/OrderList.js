@@ -32,6 +32,7 @@ const OrderListItems = () => {
   console.log('Orders:', orders);
 
   // TODO: Show a spinner when the orders are loading instead of text.
+  // Also, the styling is off. Maybe convert this to a table or grid?
   return (
     <div>
       <div className="flex justify-between p-2 pb-1 mt-2">
