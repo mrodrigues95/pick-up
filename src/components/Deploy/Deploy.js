@@ -14,7 +14,7 @@ import { AuthContext } from './../Auth/Auth';
 const Deploy = ({ history }) => {
   const [orderForm, setOrderForm] = useState({
     currentStatus: 'Processing',
-    time: new Date(),
+    date: new Date(),
     author: 'Marcus',
   });
 
@@ -31,7 +31,7 @@ const Deploy = ({ history }) => {
         orderNumber: orderForm.orderNumber,
         customerName: orderForm.customerName,
         status: orderForm.currentStatus,
-        time: orderForm.time,
+        date: orderForm.date,
         author: orderForm.author,
       })
       .then(history.push('/orders'))
