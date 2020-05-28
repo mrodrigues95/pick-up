@@ -3,7 +3,6 @@ import React from 'react';
 import Layout from '../Layout';
 import Navigation from '../Navigation/Navigation';
 import Card from '../UI/Card';
-import Input from '../UI/Input';
 import OrderList from './OrderList/OrderList';
 
 const Orders = () => {
@@ -25,7 +24,6 @@ const Orders = () => {
       </Card>
       <Card>
         <div className="w-full">
-          <Input placeholder="Filter" className="max-w-md" />
           <OrderList />
         </div>
       </Card>

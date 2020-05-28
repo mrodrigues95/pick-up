@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 
 const NavigationItem = (props) => {
-  // TODO: Make the text color and border active state persist even after clicked.
   return (
     <li className="flex items-start px-3 pt-3">
       <svg

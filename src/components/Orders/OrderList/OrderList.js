@@ -5,6 +5,7 @@ import NextDay from './NextPreviousButton/NextDay';
 import PreviousDay from './NextPreviousButton/PreviousDay';
 import OrderTable from './OrderTable';
 import { AuthContext } from './../../Auth/Auth';
+import Input from './../../UI/Input';
 
 const OrderListItems = () => {
   const [orders, setOrders] = useState([]);
@@ -30,11 +31,18 @@ const OrderListItems = () => {
   // TODO: Show a spinner when the orders are loading instead of text.
   return (
     <>
-      {loading ? <>Loading...</> : <OrderTable orders={orders} />}
-      <div className="flex justify-between mt-10">
-        <PreviousDay />
-        <NextDay />
-      </div>
+      {loading ? (
+        <div className="text-center m-4">Loading...</div>
+      ) : (
+        <>
+          <Input placeholder="Filter" className="max-w-md text-left" />{' '}
+          <OrderTable orders={orders} />
+          <div className="flex justify-between mt-10">
+            <PreviousDay />
+            <NextDay />
+          </div>
+        </>
+      )}
     </>
   );
 };

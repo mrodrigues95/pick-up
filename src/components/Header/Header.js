@@ -4,8 +4,10 @@ import Logo from './HeaderItem/Logo';
 import HamburgerIcon from './HeaderItem/HamburgerIcon';
 
 const Header = () => {
-  // TODO: Fix the logo SVG sizing on larger screens and
-  // add a 'pick.up' header next to the logo.
+  // TODO: Fix the logo SVG sizing on larger screens.
+  // Also, need to add 'pick.up' next to the logo and
+  // replace the hamburger icon with an account bubble on
+  // larger screens.
   return (
     <header>
       <nav className="bg-primary">
