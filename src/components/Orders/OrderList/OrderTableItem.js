@@ -31,7 +31,7 @@ const OrderTableItem = (props) => {
     <tbody>
       {props.orders.map((order) => (
         <tr key={order.orderNumber} className="border-b-2 border-gray-200">
-          <td className="text-left pl-12 py-2">{order.orderNumber}</td>
+          <td className="text-left pl-6 py-2">{order.orderNumber}</td>
           <td className="pl-4 w-2">{showOrderStatusSVG(order.status)}</td>
         </tr>
       ))}

@@ -13,7 +13,7 @@ const PreviousDay = () => {
           d="M13.877 3L4 8.95l9.877 5.95"
           stroke="#AEADAD"
           strokeOpacity=".94"
-          strokeWidth="4"
+          strokeWidth="2"
         />
       </svg>
     </button>
