@@ -18,7 +18,7 @@ const OrderTable = (props) => {
     <table className="w-full mt-4">
       <thead>
         <tr className="border-b-2 border-gray-200">
-          <th className="text-left">Order</th>
+          <th className="text-left pl-12">Order</th>
           <th className="text-left">Status</th>
         </tr>
       </thead>
@@ -30,7 +30,7 @@ const OrderTable = (props) => {
     <table className="w-full mt-4">
       <thead>
         <tr className="border-b-2 border-gray-200">
-          <th className="text-left">Order</th>
+          <th className="text-left pl-12">Order</th>
           <th className="text-left">Customer</th>
           <th className="text-left">Time</th>
           <th className="text-left">Status</th>

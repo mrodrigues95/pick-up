@@ -8,8 +8,6 @@ import {
 } from '../../../utils/renderOrderStatusSVG';
 
 const OrderTableItem = (props) => {
-  console.log(props.isMobile);
-
   // Returns HH/MM.
   const convertFirestoreTimestampToDateObj = (timestamp) => {
     const date = timestamp.toDate();
@@ -33,8 +31,8 @@ const OrderTableItem = (props) => {
     <tbody>
       {props.orders.map((order) => (
         <tr key={order.orderNumber} className="border-b-2 border-gray-200">
-          <td className="py-2">{order.orderNumber}</td>
-          <td>{showOrderStatusSVG(order.status)}</td>
+          <td className="text-left pl-12 py-2">{order.orderNumber}</td>
+          <td className="pl-4 w-2">{showOrderStatusSVG(order.status)}</td>
         </tr>
       ))}
     </tbody>
@@ -42,10 +40,10 @@ const OrderTableItem = (props) => {
     <tbody>
       {props.orders.map((order) => (
         <tr key={order.orderNumber} className="border-b-2 border-gray-200">
-          <td className="py-2">{order.orderNumber}</td>
+          <td className="text-left pl-12 py-2">{order.orderNumber}</td>
           <td>{order.customerName}</td>
           <td>{convertFirestoreTimestampToDateObj(order.date)}</td>
-          <td>{showOrderStatusSVG(order.status)}</td>
+          <td className="pl-4 w-2">{showOrderStatusSVG(order.status)}</td>
         </tr>
       ))}
     </tbody>

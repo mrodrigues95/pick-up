@@ -7,7 +7,6 @@ import Input from '../UI/Input';
 import OrderList from './OrderList/OrderList';
 
 const Orders = () => {
-  // 
   return (
     <Layout isAuthenticated={true}>
       <Navigation />
