@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
@@ -10,48 +10,66 @@ import Button from '../UI/Button';
 import Logo from './../Header/HeaderItem/Logo';
 
 const SignUp = ({ history }) => {
-  const isAuth = false;
+  const [account, setAccount] = useState({});
 
-  const signUpHandler = useCallback(
-    async (event) => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
+  const signUpHandler = useCallback(async () => {
+    try {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(account.email, account.password);
+      history.push('/orders');
+    } catch (error) {
+      console.log(error);
+    }
+  }, [account, history]);
 
-      try {
-        await firebase
-          .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
-        history.push('/orders');
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [history]
-  );
+  const onChangeHandler = (event) => {
+    setAccount({ ...account, [event.target.name]: event.target.value });
+  };
 
   // TODO: Add validation and a confirm password input.
   // Also, is it possible to add another field to Firebase sign up so
   // we can also add the company name?
   return (
-    <Layout isAuthenticated={isAuth}>
+    <Layout>
       <div className="flex flex-col items-center mt-40">
         <div className="max-w-lg w-full">
           <div className="flex flex-col items-center">
             <Logo />
             <h2 className="text-2xl text-white mt-4">Sign up</h2>
           </div>
-          <Form formStyle='home' onSubmit={signUpHandler}>
+          <Form formStyle="home" onSubmit={signUpHandler}>
             {/* <div className="mt-2">
               <Input placeholder="Company Name"></Input>
             </div> */}
             <div className="mt-2">
-              <Input name="email" type="email" placeholder="Email"></Input>
+              <Input
+                name="email"
+                type="email"
+                placeholder="Email"
+                changed={(e) => onChangeHandler(e)}
+                validate={{ required: true }}
+              ></Input>
             </div>
             <div className="mt-2">
-              <Input name="password" type="password" placeholder="Password"></Input>
+              <Input
+                name="password"
+                type="password"
+                placeholder="Password"
+                changed={(e) => onChangeHandler(e)}
+                validate={{
+                  required: true,
+                  minLength: {
+                    value: 6,
+                    message: 'Password must be atleast 6 characters long.',
+                  },
+                }}
+              ></Input>
             </div>
             <div className="mt-2">
-              <Button classes={'w-full'} type="submit">Create Account</Button>
+              <Button classes={'w-full'} type="submit">
+                Create Account
+              </Button>
             </div>
           </Form>
           <p className="text-center text-white">

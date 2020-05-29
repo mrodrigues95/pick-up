@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
@@ -11,28 +11,27 @@ import Logo from '../Header/HeaderItem/Logo';
 import { AuthContext } from './../Auth/Auth';
 
 const SignIn = ({ history }) => {
-  // TODO: use currentUser from our context instead of this.
-  const isAuth = false;
+  const [account, setAccount] = useState({});
+  const [accountIsInvalid, setAccountIsInvalid] = useState(false);
 
-  const signInHandler = useCallback(
-    async (event) => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
+  const signInHandler = useCallback(async () => {
+    try {
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(account.email, account.password);
+      history.push('/orders');
+    } catch (error) {
+      console.log(error);
+      setAccountIsInvalid(true);
+    }
+  }, [account, history]);
 
-      try {
-        await firebase
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push('/orders');
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [history]
-  );
+  const onChangeHandler = (event) => {
+    setAccount({ ...account, [event.target.name]: event.target.value });
+  };
 
   const { currentUser } = useContext(AuthContext);
-  
+
   // If we have a currentUser, redirect them to the Orders component.
   if (currentUser) {
     return <Redirect to="/orders" />;
@@ -40,7 +39,7 @@ const SignIn = ({ history }) => {
 
   // TODO: Add validation.
   return (
-    <Layout isAuthenticated={isAuth}>
+    <Layout>
       <div className="flex flex-col items-center mt-40">
         <div className="max-w-lg w-full">
           <div className="flex flex-col items-center">
@@ -60,17 +59,32 @@ const SignIn = ({ history }) => {
           </div>
           <Form formStyle="home" onSubmit={signInHandler}>
             <div className="mt-2">
-              <Input name="email" type="email" placeholder="Email"></Input>
+              <Input
+                name="email"
+                type="email"
+                placeholder="Email"
+                changed={(e) => onChangeHandler(e)}
+                validate={{ required: true }}
+              ></Input>
             </div>
             <div className="mt-2">
               <Input
                 name="password"
                 type="password"
                 placeholder="Password"
+                changed={(e) => onChangeHandler(e)}
+                validate={{ required: true }}
               ></Input>
             </div>
+            {accountIsInvalid && (
+              <span className="text-red-600 font-light">
+                Invalid email or password.
+              </span>
+            )}
             <div className="mt-2">
-              <Button classes={'w-full'}>Sign In</Button>
+              <Button type="submit" classes={'w-full'}>
+                Sign In
+              </Button>
             </div>
           </Form>
         </div>

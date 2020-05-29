@@ -1,4 +1,4 @@
-import React, { withRouter } from 'react';
+import React from 'react';
 
 import NavigationItem from './NavigationItem/NavigationItem';
 

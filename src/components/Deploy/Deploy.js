@@ -23,8 +23,9 @@ const Deploy = ({ history }) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  const onDeployOrder = (event) => {
-    event.preventDefault();
+  // TODO: Document ID needs to be the order number.
+  // Currently, Firebase will generate a random unique document id.
+  const onDeployOrder = () => {
     const db = firebase.firestore();
     db.collection(`users/${currentUser.email}/orders`)
       .add({
@@ -68,9 +69,8 @@ const Deploy = ({ history }) => {
     }
   };
 
-  // TODO: Add validation.
   return (
-    <Layout isAuthenticated={true}>
+    <Layout>
       <Navigation />
       <Form onSubmit={onDeployOrder}>
         <h1 className="text-2xl font-semibold">Deploy an order</h1>
@@ -78,23 +78,28 @@ const Deploy = ({ history }) => {
         <label className="font-semibold">
           Order Number
           <Input
+            name="orderNumber"
             placeholder="Order Number"
             value={orderForm.orderNumber ?? ''}
             changed={(event) => inputChangedHandler(event, 'orderNumber')}
+            validate={{ required: true }}
           />
         </label>
         <label className="font-semibold mt-4">
           Customer Name
           <Input
+            name="customerName"
             placeholder="Customer Name"
             value={orderForm.customerName ?? ''}
             changed={(event) => inputChangedHandler(event, 'customerName')}
+            validate={{ required: true }}
           />
         </label>
         <label className="font-semibold mt-4">
           Current Status
           <div>
             <Select
+              name="currentStatus"
               options={currentStatus}
               value={orderForm.currentStatus}
               changed={(option) =>
@@ -108,6 +113,7 @@ const Deploy = ({ history }) => {
           <div>
             <ReactDatePicker
               className="w-full border rounded-md p-1"
+              name="date"
               showPopperArrow={false}
               selected={orderForm.date}
               value={orderForm.date}
@@ -120,13 +126,16 @@ const Deploy = ({ history }) => {
           Author
           <div>
             <Select
+              name="author"
               options={employeeNames}
               value={orderForm.author}
               changed={(option) => selectChangedHandler(option, 'author')}
             />
           </div>
         </label>
-        <Button defaultStyle={true}>Track</Button>
+        <Button type="submit" defaultStyle={true}>
+          Track
+        </Button>
       </Form>
     </Layout>
   );

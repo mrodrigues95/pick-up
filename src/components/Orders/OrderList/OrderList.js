@@ -35,7 +35,11 @@ const OrderListItems = () => {
         <div className="text-center m-4">Loading...</div>
       ) : (
         <>
-          <Input placeholder="Filter" className="max-w-md text-left" />{' '}
+          <Input
+            className="max-w-md text-left"
+            name="filter"
+            placeholder="Filter"
+          />{' '}
           <OrderTable orders={orders} />
           <div className="flex justify-between mt-10">
             <PreviousDay />

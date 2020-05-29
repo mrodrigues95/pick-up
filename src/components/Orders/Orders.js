@@ -7,7 +7,7 @@ import OrderList from './OrderList/OrderList';
 
 const Orders = () => {
   return (
-    <Layout isAuthenticated={true}>
+    <Layout>
       <Navigation />
       <Card>
         <h1 className="text-2xl font-semibold">Today</h1>

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useForm, FormContext } from 'react-hook-form';
 
 const Form = (props) => {
+  const form = useForm({mode: 'onBlur'});
+
   const VARIANTS = {
     home: 'flex flex-col bg-transparent mt-2 mx-3 p-4',
     default:
@@ -8,14 +11,16 @@ const Form = (props) => {
   };
 
   return (
-    <form
-      className={
-        props.formStyle === 'home' ? VARIANTS.home : VARIANTS.default
-      }
-      onSubmit={props.onSubmit}
-    >
-      {props.children}
-    </form>
+    <FormContext {...form}>
+      <form
+        onSubmit={form.handleSubmit(props.onSubmit)}
+        className={
+          props.formStyle === 'home' ? VARIANTS.home : VARIANTS.default
+        }
+      >
+        {props.children}
+      </form>
+    </FormContext>
   );
 };
 
