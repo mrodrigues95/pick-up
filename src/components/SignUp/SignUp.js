@@ -27,7 +27,7 @@ const SignUp = ({ history }) => {
     setAccount({ ...account, [event.target.name]: event.target.value });
   };
 
-  // TODO: Add validation and a confirm password input.
+  // TODO: Add a confirm password input.
   // Also, is it possible to add another field to Firebase sign up so
   // we can also add the company name?
   return (

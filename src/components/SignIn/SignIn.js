@@ -37,7 +37,6 @@ const SignIn = ({ history }) => {
     return <Redirect to="/orders" />;
   }
 
-  // TODO: Add validation.
   return (
     <Layout>
       <div className="flex flex-col items-center mt-40">
