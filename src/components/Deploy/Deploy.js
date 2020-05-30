@@ -72,71 +72,75 @@ const Deploy = ({ history }) => {
   return (
     <Layout>
       <Navigation />
-      <Form onSubmit={onDeployOrder}>
-        <h1 className="text-2xl font-semibold">Deploy an order</h1>
-        <p className="text-primaryText mb-6">Prepare your order for tracking</p>
-        <label className="font-semibold">
-          Order Number
-          <Input
-            name="orderNumber"
-            placeholder="Order Number"
-            value={orderForm.orderNumber ?? ''}
-            changed={(event) => inputChangedHandler(event, 'orderNumber')}
-            validate={{ required: true }}
-          />
-        </label>
-        <label className="font-semibold mt-4">
-          Customer Name
-          <Input
-            name="customerName"
-            placeholder="Customer Name"
-            value={orderForm.customerName ?? ''}
-            changed={(event) => inputChangedHandler(event, 'customerName')}
-            validate={{ required: true }}
-          />
-        </label>
-        <label className="font-semibold mt-4">
-          Current Status
-          <div>
-            <Select
-              name="currentStatus"
-              options={currentStatus}
-              value={orderForm.currentStatus}
-              changed={(option) =>
-                selectChangedHandler(option, 'currentStatus')
-              }
+      <div className="max-w-screen-lg mx-auto">
+        <Form onSubmit={onDeployOrder}>
+          <h1 className="text-2xl font-semibold">Deploy an order</h1>
+          <p className="text-primaryText mb-6">
+            Prepare your order for tracking
+          </p>
+          <label className="font-semibold">
+            Order Number
+            <Input
+              name="orderNumber"
+              placeholder="Order Number"
+              value={orderForm.orderNumber ?? ''}
+              changed={(event) => inputChangedHandler(event, 'orderNumber')}
+              validate={{ required: true }}
             />
-          </div>
-        </label>
-        <label className="font-semibold mt-4">
-          Date
-          <div>
-            <ReactDatePicker
-              className="w-full border rounded-md p-1"
-              name="date"
-              showPopperArrow={false}
-              selected={orderForm.date}
-              value={orderForm.date}
-              onChange={(date) => setOrderForm({ ...orderForm, date: date })}
-              dateFormat="MMMM d, yyyy h:mm aa"
+          </label>
+          <label className="font-semibold mt-4">
+            Customer Name
+            <Input
+              name="customerName"
+              placeholder="Customer Name"
+              value={orderForm.customerName ?? ''}
+              changed={(event) => inputChangedHandler(event, 'customerName')}
+              validate={{ required: true }}
             />
-          </div>
-        </label>
-        <label className="font-semibold mt-4 mb-10">
-          Author
-          <div>
-            <Select
-              name="author"
-              options={employeeNames}
-              value={orderForm.author}
-              changed={(option) => selectChangedHandler(option, 'author')}
-            />
-          </div>
-        </label>
-        <Button type="submit" defaultStyle={true}>
-          Track
-        </Button>
-      </Form>
+          </label>
+          <label className="font-semibold mt-4">
+            Current Status
+            <div>
+              <Select
+                name="currentStatus"
+                options={currentStatus}
+                value={orderForm.currentStatus}
+                changed={(option) =>
+                  selectChangedHandler(option, 'currentStatus')
+                }
+              />
+            </div>
+          </label>
+          <label className="font-semibold mt-4">
+            Date
+            <div>
+              <ReactDatePicker
+                className="w-full border rounded-md p-1"
+                name="date"
+                showPopperArrow={false}
+                selected={orderForm.date}
+                value={orderForm.date}
+                onChange={(date) => setOrderForm({ ...orderForm, date: date })}
+                dateFormat="MMMM d, yyyy h:mm aa"
+              />
+            </div>
+          </label>
+          <label className="font-semibold mt-4 mb-10">
+            Author
+            <div>
+              <Select
+                name="author"
+                options={employeeNames}
+                value={orderForm.author}
+                changed={(option) => selectChangedHandler(option, 'author')}
+              />
+            </div>
+          </label>
+          <Button type="submit" defaultStyle={true}>
+            Track
+          </Button>
+        </Form>
+      </div>
     </Layout>
   );
 };

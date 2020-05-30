@@ -10,8 +10,6 @@ const NavigationItem = (props) => {
       'flex items-start px-3 pt-3 text-primary font-semibold border-b-2 rounded-sm border-primary';
   }
 
-  console.log(activeNavigationItem);
-
   return (
     <li
       className={
