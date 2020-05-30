@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <Layout>
       <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">
-        <div className="flex">
-          <Logo />
+        <div className="flex items-start">
+          <Logo className="h-16 w-auto" />
           <h1 className="text-4xl text-white ml-4">pick.up</h1>
         </div>
         <form className="flex flex-col mt-2">
@@ -19,9 +19,7 @@ const Home = () => {
             <Input placeholder="Enter your unique PIN" />
           </div>
           <div className="ml-auto">
-            <Button defaultStyle={false}>
-              View Order
-            </Button>
+            <Button defaultStyle={false}>View Order</Button>
           </div>
         </form>
       </div>
