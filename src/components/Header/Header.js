@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import firebase from '../../firebase';
 
 import Logo from './HeaderItem/Logo';
 import HamburgerIcon from './HeaderItem/HamburgerIcon';
@@ -18,7 +18,10 @@ const Header = () => {
         <div className="flex items-center p-3">
           <Logo />
           <h1 className="pl-2 mb-2 text-white text-2xl">pick.up</h1>
-          <Link className="flex items-center ml-auto" to="orders">
+          <button
+            className="flex items-center ml-auto"
+            onClick={() => firebase.auth().signOut()}
+          >
             <svg
               className="h-6 w-auto"
               viewBox="0 0 100 100"
@@ -39,7 +42,7 @@ const Header = () => {
             >
               <path d="M19 9l-7 7-7-7"></path>
             </svg>
-          </Link>
+          </button>
         </div>
       </nav>
     </header>

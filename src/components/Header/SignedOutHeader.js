@@ -4,50 +4,36 @@ import { NavLink } from 'react-router-dom';
 import Logo from './HeaderItem/Logo';
 
 const SignedOutHeader = () => {
-  let navLink;
-
-  // TODO: Fix the logo SVG sizing on larger screens.
-  switch (window.location.pathname) {
-    case '/signup':
-      navLink = (
-        <NavLink
-          className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4"
-          to="/"
-        >
-          Home
-        </NavLink>
-      );
-      break;
-    case '/signin':
-      navLink = (
-        <NavLink
-          className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4"
-          to="/"
-        >
-          Home
-        </NavLink>
-      );
-      break;
-    case '/':
-      navLink = (
-        <NavLink
-          className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4"
-          to="/signin"
-        >
-          Sign In
-        </NavLink>
-      );
-      break;
-    default:
-      break;
+  let showingHome = true;
+  if (window.location.pathname === '/') {
+    showingHome = true;
+  } else {
+    showingHome = false;
   }
 
   return (
     <header>
-      <nav className="bg-primary">
+      <nav className="sm:hidden bg-primary">
         <div className="flex justify-between items-center p-3">
           <Logo />
-          {navLink}
+          <NavLink
+            className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4 ml-auto"
+            to={showingHome ? 'signin' : '/'}
+          >
+            {showingHome ? 'Sign In' : 'Home'}
+          </NavLink>
+        </div>
+      </nav>
+      <nav className="hidden sm:block bg-primary">
+        <div className="flex items-center p-3">
+          <Logo />
+          <h1 className="pl-2 mb-2 text-white text-2xl">pick.up</h1>
+          <NavLink
+            className="bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4 ml-auto"
+            to={showingHome ? 'signin' : '/'}
+          >
+            {showingHome ? 'Sign In' : 'Home'}
+          </NavLink>
         </div>
       </nav>
     </header>
