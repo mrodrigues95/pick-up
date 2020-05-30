@@ -6,7 +6,6 @@ import Input from '../UI/Input';
 import Button from '../UI/Button';
 
 const Home = () => {
-  // TODO: Fix the logo SVG sizing.
   return (
     <Layout>
       <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">

@@ -5,7 +5,6 @@ import Logo from './HeaderItem/Logo';
 import HamburgerIcon from './HeaderItem/HamburgerIcon';
 
 const Header = () => {
-  // TODO: Fix the logo SVG sizing on larger screens.
   return (
     <header>
       <nav className="sm:hidden bg-primary">
