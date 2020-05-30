@@ -5,8 +5,8 @@ const Input = (props) => {
   const form = useFormContext();
 
   const className = props.className
-    ? 'bg-body w-full rounded-lg p-2 ' + props.className
-    : 'bg-body w-full rounded-lg p-2';
+    ? 'bg-body w-full rounded-lg p-2 outline-none ' + props.className
+    : 'bg-body w-full rounded-lg p-2 outline-none focus:shadow-outline';
 
   return (
     <>

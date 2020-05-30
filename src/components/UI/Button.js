@@ -3,8 +3,8 @@ import React from 'react';
 const Button = (props) => {
   const VARIANTS = {
     primary:
-      'bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4',
-    default: 'bg-primary text-white text-center rounded-md p-2',
+      'bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4 focus:outline-none',
+    default: 'bg-primary text-white text-center rounded-md p-2 focus:outline-none',
   };
 
   if (props.classes) {
