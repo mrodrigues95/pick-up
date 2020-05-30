@@ -6,8 +6,7 @@ import Logo from './HeaderItem/Logo';
 const SignedOutHeader = () => {
   let navLink;
 
-  // TODO: Fix the logo SVG sizing on larger screens and
-  // add a 'pick.up' header next to the logo.
+  // TODO: Fix the logo SVG sizing on larger screens.
   switch (window.location.pathname) {
     case '/signup':
       navLink = (
