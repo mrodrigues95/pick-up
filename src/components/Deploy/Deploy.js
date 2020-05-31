@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import Layout from '../Layout';
@@ -16,13 +17,18 @@ const Deploy = ({ history }) => {
     currentStatus: 'Processing',
     date: new Date(),
     author: 'Marcus',
+    key: uuidv4(),
   });
 
+  // TODO: Employee names needs to be pulled in from Firebase instead of
+  // being static like this.
   const currentStatus = ['Processing', 'Quality Check', 'Ready'];
   const employeeNames = ['Marcus', 'Joe', 'Jack'];
 
   const { currentUser } = useContext(AuthContext);
 
+  // TODO: Add another layer of validation here to double check
+  // that the form is valid.
   const onDeployOrder = () => {
     const db = firebase.firestore();
     db.collection(`users/${currentUser.email}/orders`)
@@ -33,6 +39,7 @@ const Deploy = ({ history }) => {
         status: orderForm.currentStatus,
         date: orderForm.date,
         author: orderForm.author,
+        key: orderForm.key
       })
       .then(history.push('/orders'))
       .catch((error) => console.log(error));
