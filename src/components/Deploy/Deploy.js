@@ -75,6 +75,9 @@ const Deploy = ({ history }) => {
     }
   };
 
+  // TODO: Need to add another input field that will let employees
+  // notify the customer of a certain pick up location.
+  // E.g. "Please wait at parking spot #4"
   return (
     <Layout>
       <Navigation />

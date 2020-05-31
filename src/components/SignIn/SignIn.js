@@ -14,6 +14,7 @@ const SignIn = ({ history }) => {
   const [account, setAccount] = useState({});
   const [accountIsInvalid, setAccountIsInvalid] = useState(false);
 
+  // TODO: Show a spinner while this is fetching account details
   const signInHandler = useCallback(async () => {
     try {
       await firebase

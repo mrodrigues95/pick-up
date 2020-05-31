@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import firebase from '../../../firebase';
 
 import NextDay from './NextPreviousButton/NextDay';
@@ -33,12 +34,21 @@ const OrderListItems = () => {
       isMounted = true;
     };
   }, [currentUser]);
-
-  // TODO: Show a spinner when the orders are loading instead of text.
+  
+  // TODO: If the account has no orders, this should show a caption with
+  // a link to the deploy component.
+  // E.g. "There seems to be no orders created, would you like to deploy one now?"
+  // -> then navigate to deploy.
+  // TODO: This should only display the orders for the current date that is selected.
+  // Right now, it is displaying ALL orders linked to the current users account via Firebase.
   return (
     <>
       {loading ? (
-        <div className="text-center m-4">Loading...</div>
+        <div className="text-center m-4">
+          <ClipLoader
+            color={'#083D77'}
+          />
+        </div>
       ) : (
         <>
           <Input

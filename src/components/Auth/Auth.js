@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 import firebase from '../../firebase';
 
 export const AuthContext = React.createContext();
@@ -17,10 +18,13 @@ export const AuthProvider = ({ children }) => {
       setPending(false);
     });
   }, []);
-
-  // TODO: Show a spinner instead.
+  
   if (pending) {
-    return <>Loading...</>
+    return (
+      <>
+        <ClipLoader color={'#083D77'} />
+      </>
+    );
   }
 
   return (
