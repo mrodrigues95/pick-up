@@ -9,7 +9,7 @@ const Header = () => {
     <header>
       <nav className="sm:hidden bg-primary">
         <div className="flex justify-between items-center p-3">
-          <Logo />
+          <Logo className="h-6 w-auto" />
           <HamburgerIcon />
         </div>
       </nav>

@@ -17,15 +17,21 @@ const OrderListItems = () => {
   // TODO: Support error checking. What happens if no orders
   // are fetched or there's a network error?
   useEffect(() => {
+    let isMounted = false;
     const fetchOrders = async () => {
       const db = firebase.firestore();
       const data = await db
         .collection(`users/${currentUser.email}/orders`)
         .get();
-      setOrders(data.docs.map((doc) => doc.data()));
-      setLoading(false);
+      if (!isMounted) {
+        setOrders(data.docs.map((doc) => doc.data()));
+        setLoading(false);
+      }
     };
     fetchOrders();
+    return () => {
+      isMounted = true;
+    };
   }, [currentUser]);
 
   // TODO: Show a spinner when the orders are loading instead of text.
