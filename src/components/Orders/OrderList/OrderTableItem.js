@@ -27,6 +27,9 @@ const OrderTableItem = (props) => {
     }
   };
 
+  // TODO: Table rows should be clickable.
+  // Once clicked, a modal needs to appear allowing the user to edit
+  // the current orders information.
   return props.isMobile ? (
     <tbody>
       {props.orders.map((order) => (

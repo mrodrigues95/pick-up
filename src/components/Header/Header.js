@@ -6,6 +6,7 @@ import HamburgerIcon from './HeaderItem/HamburgerIcon';
 
 const Header = () => {
   // TODO: Update account avatar.
+  // TODO: Change header for mobile devices.
   return (
     <header>
       <nav className="sm:hidden bg-primary">
