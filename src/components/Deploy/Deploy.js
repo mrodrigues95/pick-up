@@ -23,12 +23,11 @@ const Deploy = ({ history }) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  // TODO: Document ID needs to be the order number.
-  // Currently, Firebase will generate a random unique document id.
   const onDeployOrder = () => {
     const db = firebase.firestore();
     db.collection(`users/${currentUser.email}/orders`)
-      .add({
+      .doc(orderForm.orderNumber)
+      .set({
         orderNumber: orderForm.orderNumber,
         customerName: orderForm.customerName,
         status: orderForm.currentStatus,
