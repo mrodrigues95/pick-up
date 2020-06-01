@@ -22,7 +22,7 @@ const Layout = (props) => {
     header = (
       <div
         className={
-          currentLocation.pathname === '/track'
+          currentLocation.state
             ? 'w-screen h-screen bg-body'
             : 'w-screen h-screen bg-primary'
         }

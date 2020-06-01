@@ -1,11 +1,13 @@
 import React from 'react';
+// import { useParams } from 'react-router-dom';
 
 import Layout from './../Layout';
 import Card from './../UI/Card';
 import InfoCard from './InfoCard';
 import Button from './../UI/Button';
 
-const Track = (props) => {
+const Track = ({ history }) => {
+  console.log(history)
   return (
     <Layout>
       <div className="mt-8">

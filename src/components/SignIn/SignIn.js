@@ -22,7 +22,6 @@ const SignIn = ({ history }) => {
         .signInWithEmailAndPassword(account.email, account.password);
       history.push('/orders');
     } catch (error) {
-      console.log(error);
       setAccountIsInvalid(true);
     }
   }, [account, history]);
