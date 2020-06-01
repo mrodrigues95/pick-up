@@ -82,7 +82,7 @@ const SignIn = ({ history }) => {
               </span>
             )}
             <div className="mt-2">
-              <Button type="submit" classes={'w-full'}>
+              <Button type="submit" className="w-full bg-primaryButton">
                 Sign In
               </Button>
             </div>

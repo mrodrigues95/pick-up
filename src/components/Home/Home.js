@@ -18,7 +18,7 @@ const Home = () => {
             <Input placeholder="Enter your unique PIN" />
           </div>
           <div className="ml-auto">
-            <Button defaultStyle={false}>View Order</Button>
+            <Button className="bg-primaryButton">View Order</Button>
           </div>
         </form>
       </div>

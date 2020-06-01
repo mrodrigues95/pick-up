@@ -145,7 +145,7 @@ const Deploy = ({ history }) => {
               />
             </div>
           </label>
-          <Button type="submit" defaultStyle={true}>
+          <Button type="submit" className="bg-primary">
             Track
           </Button>
         </Form>

@@ -9,6 +9,7 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import FourOhFour from './components/404/FourOhFour';
+import Track from './components/Track/Track';
 import { AuthProvider } from './components/Auth/Auth';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/track" component={Track} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <PrivateRoute exact path="/orders" component={Orders} />

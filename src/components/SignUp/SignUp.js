@@ -12,6 +12,7 @@ import Logo from './../Header/HeaderItem/Logo';
 const SignUp = ({ history }) => {
   const [account, setAccount] = useState({});
 
+  // TODO: Handle exisiting account errors.
   const signUpHandler = useCallback(async () => {
     try {
       await firebase
@@ -67,7 +68,7 @@ const SignUp = ({ history }) => {
               ></Input>
             </div>
             <div className="mt-2">
-              <Button classes={'w-full'} type="submit">
+              <Button className="w-full bg-primaryButton" type="submit">
                 Create Account
               </Button>
             </div>

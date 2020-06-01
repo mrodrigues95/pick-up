@@ -1,19 +1,13 @@
 import React from 'react';
+import clsx from 'clsx';
 
 const Button = (props) => {
-  const VARIANTS = {
-    primary:
-      'bg-primaryButton text-white text-center rounded-md shadow-lg p-1 px-4 focus:outline-none',
-    default: 'bg-primary text-white text-center rounded-md p-2 focus:outline-none',
-  };
-
-  if (props.classes) {
-    VARIANTS.primary += ' ' + props.classes;
-  }
-
   return (
     <button
-      className={props.defaultStyle ? VARIANTS.default : VARIANTS.primary}
+      className={clsx(
+        'text-white text-center rounded-md shadow-lg p-1 px-4 focus:outline-none',
+        props.className
+      )}
       type={props.type}
       onClick={props.onClick}
     >
