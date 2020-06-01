@@ -52,6 +52,7 @@ const Home = ({ history }) => {
     setOrderId({ [e.target.name]: e.target.value });
   };
 
+  // TODO: Fix mobile layout.
   return (
     <Layout>
       <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">
