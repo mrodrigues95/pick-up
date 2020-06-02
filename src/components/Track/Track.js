@@ -42,7 +42,6 @@ const Track = ({ history }) => {
               </p>
             </div>
             <Progress status={orderData.status} />
-            {/* <div className="text-center my-20">TRACKING STATUS</div> */}
             <div className="flex-1 mx-auto sm:flex">
               <div className="flex-auto">
                 <InfoCard

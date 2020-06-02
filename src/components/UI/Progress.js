@@ -27,10 +27,10 @@ const Progress = ({ status }) => {
   }, 1000);
 
   return (
-    <div className="relative my-4 mx-0 h-8 w-64 bg-gray-300 border rounded-sm">
+    <div className="w-3/4 my-12 mx-auto h-8 w-64 bg-gray-300 border-0 rounded-full shadow-md">
       <div
         className={clsx(
-          'h-full flex items-center justify-center border rounded-sm bg-primary text-white shadow-md',
+          'h-full flex items-center justify-center border rounded-full bg-gradient-white-to-blue text-white transition-all ease-in-out duration-700',
           progressVisual
         )}
       >
