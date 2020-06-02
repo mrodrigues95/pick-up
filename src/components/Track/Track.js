@@ -25,7 +25,7 @@ const Track = ({ history }) => {
     }
   }, [history.location.state]);
 
-  console.log(orderData)
+  console.log(orderData);
 
   return (
     <Layout>
@@ -40,6 +40,17 @@ const Track = ({ history }) => {
               <p className="text-primaryText mt-2">
                 {orderData.author} is processing your order.
               </p>
+            </div>
+            <div className="w-full mt-6 flex justify-center">
+              {orderData.status === 'Ready' ? (
+                <span className="px-2 border-0 rounded-full text-green-600 bg-green-200 font-semibold">
+                  {orderData.status}
+                </span>
+              ) : (
+                <span className="px-2 border-0 rounded-full text-red-600 bg-red-200 font-semibold">
+                  {orderData.status}
+                </span>
+              )}
             </div>
             <Progress status={orderData.status} />
             <div className="flex-1 mx-auto sm:flex">
