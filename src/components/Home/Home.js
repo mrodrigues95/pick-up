@@ -23,8 +23,8 @@ const Home = ({ history }) => {
       // Get all the companies.
       data.forEach((doc) => (companies[doc.id] = doc.data()));
 
-      // Iterator through all of the companies that are stored in Firebase.
-      // Then, retrieve all of the orders that belong to a specific company.
+      // Iterate through all of the companies that are stored in Firebase.
+      // Then, retrieve all of the orders that belong to each company.
       for (const info in companies) {
         const data = await db.collection(`users/${info}/orders`).get();
         data.forEach((doc) => {

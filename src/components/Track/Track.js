@@ -1,5 +1,5 @@
-import React from 'react';
-// import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import Layout from './../Layout';
 import Card from './../UI/Card';
@@ -7,9 +7,26 @@ import InfoCard from './InfoCard';
 import Button from './../UI/Button';
 
 const Track = ({ history }) => {
-  console.log(history)
+  const [orderData, setOrderData] = useState({});
+  const [invalidOrder, setInvalidOrder] = useState(false);
+
+  useEffect(() => {
+    // Double layer of security just to check if the order
+    // is invalid or if the user tampered with the URL.
+    if (!!history.location.state) {
+      setOrderData({
+        orderNumber: history.location.state.orderData.orderNumber,
+        status: history.location.state.orderData.status,
+        author: history.location.state.orderData.author,
+      });
+    } else {
+      setInvalidOrder(true);
+    }
+  }, [history.location.state]);
+
   return (
     <Layout>
+      {invalidOrder && <Redirect to="/" />}
       <div className="mt-8">
         <Card>
           <div className="flex flex-col w-full">
@@ -18,7 +35,7 @@ const Track = ({ history }) => {
                 Hang tight! Your order is being prepared.
               </h2>
               <p className="text-primaryText mt-2">
-                Jane is processing your order.
+                {orderData.author} is processing your order.
               </p>
             </div>
             <div className="text-center my-20">TRACKING STATUS</div>
@@ -29,7 +46,7 @@ const Track = ({ history }) => {
                   title="Thank you for your order"
                 >
                   <span className="text-primaryButton font-bold">
-                    Order #FA729KD9KMS92DNL21{' '}
+                    Order #{orderData.orderNumber}{' '}
                   </span>
                   <span className="text-primary font-semibold">
                     was successfully placed.
