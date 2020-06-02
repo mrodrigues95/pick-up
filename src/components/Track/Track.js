@@ -81,8 +81,8 @@ const Track = ({ history }) => {
                   title="Store Details"
                   showAvatar={true}
                 >
-                  <div class="flex mb-4">
-                    <div class="w-1/2">
+                  <div className="flex mb-4">
+                    <div className="w-1/2">
                       <span className="text-primaryButton font-bold">
                         Sheridan Greenery
                       </span>
@@ -92,7 +92,7 @@ const Track = ({ history }) => {
                         <p className="mt-2">888-888-8888</p>
                       </div>
                     </div>
-                    <div class="hidden w-1/2 md:flex justify-center">
+                    <div className="hidden w-1/2 md:flex justify-center overflow-hidden">
                       <img
                         className="w-32 h-full bg-gray-600 rounded-full object-cover"
                         src="https://images.pexels.com/photos/5808/food-healthy-vegetables-village.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
