@@ -5,6 +5,7 @@ import Layout from './../Layout';
 import Card from './../UI/Card';
 import InfoCard from './InfoCard';
 import Button from './../UI/Button';
+import Progress from './../UI/Progress';
 
 const Track = ({ history }) => {
   const [orderData, setOrderData] = useState({});
@@ -24,6 +25,8 @@ const Track = ({ history }) => {
     }
   }, [history.location.state]);
 
+  console.log(orderData)
+
   return (
     <Layout>
       {invalidOrder && <Redirect to="/" />}
@@ -38,7 +41,8 @@ const Track = ({ history }) => {
                 {orderData.author} is processing your order.
               </p>
             </div>
-            <div className="text-center my-20">TRACKING STATUS</div>
+            <Progress status={orderData.status} />
+            {/* <div className="text-center my-20">TRACKING STATUS</div> */}
             <div className="flex-1 mx-auto sm:flex">
               <div className="flex-auto">
                 <InfoCard
