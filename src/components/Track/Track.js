@@ -81,13 +81,24 @@ const Track = ({ history }) => {
                   title="Store Details"
                   showAvatar={true}
                 >
-                  <span className="text-primaryButton font-bold">
-                    Sheridan Greenery
-                  </span>
-                  <div className="text-sm">
-                    <p className="mt-2">123 Main Street</p>
-                    <p className="mt-2">Kitchener, ON N2N N2N</p>
-                    <p className="mt-2">888-888-8888</p>
+                  <div class="flex mb-4">
+                    <div class="w-1/2">
+                      <span className="text-primaryButton font-bold">
+                        Sheridan Greenery
+                      </span>
+                      <div className="text-sm">
+                        <p className="mt-2">123 Main Street</p>
+                        <p className="mt-2">Kitchener, ON N2N N2N</p>
+                        <p className="mt-2">888-888-8888</p>
+                      </div>
+                    </div>
+                    <div class="hidden w-1/2 md:flex justify-center">
+                      <img
+                        className="w-32 h-full bg-gray-600 rounded-full object-cover"
+                        src="https://images.pexels.com/photos/5808/food-healthy-vegetables-village.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        alt="Store Logo"
+                      ></img>
+                    </div>
                   </div>
                 </InfoCard>
               </div>
