@@ -6,10 +6,12 @@ import Card from './../UI/Card';
 import InfoCard from './InfoCard';
 import Button from './../UI/Button';
 import Progress from './../UI/Progress';
+import Modal from './../UI/Modal';
 
 const Track = ({ history }) => {
   const [orderData, setOrderData] = useState({});
   const [invalidOrder, setInvalidOrder] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Double layer of security just to check if the order
@@ -25,11 +27,35 @@ const Track = ({ history }) => {
     }
   }, [history.location.state]);
 
-  console.log(orderData);
-
   return (
     <Layout>
       {invalidOrder && <Redirect to="/" />}
+      {showModal && (
+        <Modal show={showModal} onClose={() => setShowModal(false)}>
+          <svg
+            className="mx-auto w-12 h-12"
+            viewBox="0 0 54 54"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="27.5" cy="27.5" r="26.5" fill="#C6F6D5" />
+            <path
+              stroke="#276749"
+              strokeWidth="2"
+              d="M16.707 29.293l5.657 5.657M21.315 35.272l17-16"
+            />
+          </svg>
+          <h2 className="mt-4 text-2xl text-center font-bold">Notified</h2>
+          <p className="mt-2 text-primaryText">
+            The store has been notified that you are on the way!
+          </p>
+          <Button
+            className="w-full mt-6 bg-primaryButton"
+            onClick={() => setShowModal(false)}
+          >
+            Go back
+          </Button>
+        </Modal>
+      )}
       <div className="mt-8">
         <Card>
           <div className="flex flex-col w-full">
@@ -112,8 +138,18 @@ const Track = ({ history }) => {
                     whereabouts.
                   </p>
                   <div className="flex flex-col mt-4 space-y-2 md:flex-row md:space-y-0 md:justify-evenly">
-                    <Button className="bg-yellow-500">On the way!</Button>
-                    <Button className="bg-green-500">I am here!</Button>
+                    <Button
+                      className="bg-yellow-500"
+                      onClick={() => setShowModal(true)}
+                    >
+                      On the way!
+                    </Button>
+                    <Button
+                      className="bg-green-500"
+                      onClick={() => setShowModal(true)}
+                    >
+                      I am here!
+                    </Button>
                   </div>
                 </InfoCard>
               </div>
