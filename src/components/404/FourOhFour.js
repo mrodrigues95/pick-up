@@ -11,9 +11,9 @@ const FourOhFour = () => {
           Page not found.
         </h2>
         <p className="my-4 text-gray-900">
-          The page you're looking could not be found.
+          The page you're looking for could not be found.
         </p>
-        <Link to="/">Go back home.</Link>
+        <Link to="/" className="text-blue-400">Go back home.</Link>
       </div>
     </Layout>
   );

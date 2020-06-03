@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import firebase from './../../firebase';
 
@@ -49,6 +50,7 @@ const Dropdown = () => {
       </div>
       {isOpen && (
         <nav className="absolute right-0 mt-2 py-2 w-40 bg-white rounded-lg shadow-xl">
+          <Link to="/orders" className="block w-full px-4 py-2 text-left text-gray-800 hover:bg-blue-300 hover:text-white">Orders</Link>
           <button
             className="block w-full px-4 py-2 text-left text-gray-800 hover:bg-blue-300 hover:text-white"
             onClick={() => firebase.auth().signOut()}
