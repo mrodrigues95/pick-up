@@ -40,6 +40,8 @@ const OrderTableItem = ({ history, ...props }) => {
     }
   };
 
+  console.log(newOrderStatus)
+
   const onUpdateOrder = (e) => {
     e.preventDefault();
     const db = firebase.firestore();
@@ -54,6 +56,7 @@ const OrderTableItem = ({ history, ...props }) => {
   const tableOnClickHandler = (order) => {
     setShowModal(true);
     setSelectedOrder(order);
+    setNewOrderStatus(order.status)
   };
 
   // Handle onChange events for select elements.

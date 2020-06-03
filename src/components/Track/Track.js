@@ -27,6 +27,8 @@ const Track = ({ history }) => {
     }
   }, [history.location.state]);
 
+
+  console.log(orderData)
   return (
     <Layout>
       {invalidOrder && <Redirect to="/" />}
