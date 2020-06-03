@@ -34,7 +34,7 @@ const OrderListItems = () => {
       isMounted = true;
     };
   }, [currentUser]);
-  
+
   // TODO: If the account has no orders, this should show a caption with
   // a link to the deploy component.
   // E.g. "There seems to be no orders created, would you like to deploy one now?"
@@ -45,9 +45,7 @@ const OrderListItems = () => {
     <>
       {loading ? (
         <div className="text-center m-4">
-          <ClipLoader
-            color={'#083D77'}
-          />
+          <ClipLoader color={'#083D77'} />
         </div>
       ) : (
         <>

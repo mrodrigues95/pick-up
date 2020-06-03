@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import OrderTableItem from './OrderTableItem';
 
@@ -13,6 +14,15 @@ const OrderTable = (props) => {
   const updateMedia = () => {
     setIsMobile(window.innerWidth < 640);
   };
+
+  if (!!props.orders) {
+    return (
+      <h2 className="text-center mt-12">
+        There are currently no orders deployed.{' '}
+        <Link to="/deploy" className="text-blue-400">Would you like to deploy one now?</Link>
+      </h2>
+    );
+  }
 
   const isMobileOrderTable = (
     <table className="w-full mt-4">
