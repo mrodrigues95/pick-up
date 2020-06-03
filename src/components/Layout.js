@@ -7,9 +7,15 @@ import { AuthContext } from './Auth/Auth';
 
 const Layout = (props) => {
   let currentLocation = useLocation();
-
+  
   let header = (
-    <div className="w-screen h-screen bg-body">
+    <div
+      className={
+        currentLocation.pathname === '/'
+          ? 'w-screen h-screen bg-primary'
+          : 'w-screen h-screen bg-body'
+      }
+    >
       <Header />
       <main>{props.children}</main>
     </div>

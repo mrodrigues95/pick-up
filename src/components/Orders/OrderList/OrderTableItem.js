@@ -117,7 +117,7 @@ const OrderTableItem = ({ history, ...props }) => {
         {props.orders.map((order) => (
           <tr
             key={order.orderNumber}
-            className="border-b-2 border-gray-200"
+            className="border-b-2 border-gray-200 cursor-pointer hover:bg-gray-200"
             onClick={() => tableOnClickHandler(order)}
           >
             <td className="text-left pl-6 py-2">{order.orderNumber}</td>
