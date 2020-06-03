@@ -40,8 +40,6 @@ const OrderTableItem = ({ history, ...props }) => {
     }
   };
 
-  console.log(newOrderStatus)
-
   const onUpdateOrder = (e) => {
     e.preventDefault();
     const db = firebase.firestore();
@@ -56,7 +54,7 @@ const OrderTableItem = ({ history, ...props }) => {
   const tableOnClickHandler = (order) => {
     setShowModal(true);
     setSelectedOrder(order);
-    setNewOrderStatus(order.status)
+    setNewOrderStatus(order.status);
   };
 
   // Handle onChange events for select elements.
@@ -78,7 +76,10 @@ const OrderTableItem = ({ history, ...props }) => {
               {selectedOrder.key}
             </p>
             <CopyToClipboard text={selectedOrder.key}>
-              <button className="px-1 ml-2 w-8 h-8 bg-blue-700 text-white rounded-md focus:outline-none">
+              <button
+                className="px-1 ml-2 w-8 h-8 bg-blue-700 text-white rounded-md focus:outline-none"
+                onClick={(e) => e.preventDefault()}
+              >
                 <svg
                   className="h-6 w-6 text-white"
                   fill="none"
@@ -139,7 +140,10 @@ const OrderTableItem = ({ history, ...props }) => {
               {selectedOrder.key}
             </p>
             <CopyToClipboard text={selectedOrder.key}>
-              <button className="px-1 ml-2 w-8 h-8 bg-blue-700 text-white rounded-md focus:outline-none">
+              <button
+                className="px-1 ml-2 w-8 h-8 bg-blue-700 text-white rounded-md focus:outline-none"
+                onClick={(e) => e.preventDefault()}
+              >
                 <svg
                   className="h-6 w-6 text-white"
                   fill="none"
@@ -177,7 +181,7 @@ const OrderTableItem = ({ history, ...props }) => {
         {props.orders.map((order) => (
           <tr
             key={order.orderNumber}
-            className="border-b-2 border-gray-200"
+            className="border-b-2 border-gray-200 cursor-pointer hover:bg-gray-200"
             onClick={() => tableOnClickHandler(order)}
           >
             <td className="text-left pl-12 py-2">{order.orderNumber}</td>
