@@ -15,7 +15,7 @@ const OrderTable = (props) => {
     setIsMobile(window.innerWidth < 640);
   };
 
-  if (!!props.orders) {
+  if (!Object.keys(props.orders).length > 0) {
     return (
       <h2 className="text-center mt-12">
         There are currently no orders deployed.{' '}
