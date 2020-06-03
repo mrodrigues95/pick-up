@@ -112,7 +112,7 @@ const Track = ({ history }) => {
                   <div className="flex mb-4">
                     <div className="w-1/2">
                       <span className="text-primaryButton font-bold">
-                        Sheridan Greenery
+                        Shawns Greenery
                       </span>
                       <div className="text-sm">
                         <p className="mt-2">123 Main Street</p>

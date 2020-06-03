@@ -12,7 +12,7 @@ const Dropdown = () => {
     if (node.current.contains(e.target)) {
       return;
     }
-    
+
     // Outside click -> close the dropdown.
     setIsOpen(false);
   };
@@ -33,32 +33,18 @@ const Dropdown = () => {
   return (
     <div ref={node} className="relative">
       <div className="flex items-center">
-        <span className="hidden sm:inline-block mr-2 text-white">
+        <span className="hidden sm:inline-block mr-2 text-white font-thin">
           Shawns Greenery
         </span>
         <button
-          className="block h-8 w-8 rounded-full overflow-hidden focus:outline-none focus:shadow-outline"
+          className="block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white focus:shadow-outline"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <svg
-            className="h-full w-full object-cover"
-            viewBox="0 0 100 100"
-            fill="white"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="50" cy="50" r="50" />
-          </svg>
-          <svg
-            className="h-4 w-auto pl-1 mt-1"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="gray"
-          >
-            <path d="M19 9l-7 7-7-7"></path>
-          </svg>
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.pexels.com/photos/5808/food-healthy-vegetables-village.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="Store Logo"
+          ></img>
         </button>
       </div>
       {isOpen && (
