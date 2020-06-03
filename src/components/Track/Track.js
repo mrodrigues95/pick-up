@@ -11,7 +11,7 @@ import Modal from './../UI/Modal';
 const Track = ({ history }) => {
   const [orderData, setOrderData] = useState({});
   const [invalidOrder, setInvalidOrder] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [modal, setModal] = useState({ show: false, message: '' });
 
   useEffect(() => {
     // Double layer of security just to check if the order
@@ -27,13 +27,11 @@ const Track = ({ history }) => {
     }
   }, [history.location.state]);
 
-
-  console.log(orderData)
   return (
     <Layout>
       {invalidOrder && <Redirect to="/" />}
-      {showModal && (
-        <Modal show={showModal} onClose={() => setShowModal(false)}>
+      {modal && (
+        <Modal show={modal.show} onClose={() => setModal({ show: false })}>
           <svg
             className="mx-auto w-12 h-12"
             viewBox="0 0 54 54"
@@ -48,11 +46,11 @@ const Track = ({ history }) => {
           </svg>
           <h2 className="mt-4 text-2xl text-center font-bold">Notified</h2>
           <p className="mt-2 text-primaryText">
-            The store has been notified that you are on the way!
+            The store has been notified that you are {modal.message}
           </p>
           <Button
             className="w-full mt-6 bg-primaryButton"
-            onClick={() => setShowModal(false)}
+            onClick={() => setModal({ show: false })}
           >
             Go back
           </Button>
@@ -142,13 +140,18 @@ const Track = ({ history }) => {
                   <div className="flex flex-col mt-4 space-y-2 md:flex-row md:space-y-0 md:justify-evenly">
                     <Button
                       className="bg-yellow-500"
-                      onClick={() => setShowModal(true)}
+                      onClick={() =>
+                        setModal({
+                          show: true,
+                          message: 'on the way!',
+                        })
+                      }
                     >
                       On the way!
                     </Button>
                     <Button
                       className="bg-green-500"
-                      onClick={() => setShowModal(true)}
+                      onClick={() => setModal({ show: true, message: 'here!' })}
                     >
                       I am here!
                     </Button>
