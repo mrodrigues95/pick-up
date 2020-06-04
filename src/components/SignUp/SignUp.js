@@ -43,7 +43,7 @@ const SignUp = ({ history }) => {
   // we can also add the company name?
   return (
     <Layout>
-      <div className="flex flex-col items-center mt-40">
+      <div className="flex flex-col items-center mt-40 md:mt-64">
         <div className="max-w-lg w-full">
           <div className="flex flex-col items-center">
             <Logo />

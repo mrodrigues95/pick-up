@@ -63,7 +63,7 @@ const Home = ({ history }) => {
   // TODO: Fix mobile layout.
   return (
     <Layout>
-      <div className="flex flex-col w-full max-w-xl p-3 mt-40 m-auto">
+      <div className="flex flex-col w-full max-w-xl p-3 mt-40 md:mt-64 m-auto">
         <div className="flex items-start">
           <Logo className="h-16 w-auto" />
           <h1 className="text-4xl text-white ml-4">pick.up</h1>
