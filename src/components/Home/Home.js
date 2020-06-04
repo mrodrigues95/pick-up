@@ -52,6 +52,14 @@ const Home = ({ history }) => {
     setOrderId({ [e.target.name]: e.target.value });
   };
 
+  const checkForEmptyOrderNumber = () => {
+    if (!orderId.uuid) {
+      setError('Unable to find order. Please double check your unique key.');
+    } else {
+      setSearch(orderId.uuid)
+    }
+  }
+
   // TODO: Fix mobile layout.
   return (
     <Layout>
@@ -81,7 +89,7 @@ const Home = ({ history }) => {
               ) : (
                 <Button
                   className="bg-primaryButton"
-                  onClick={() => setSearch(orderId.uuid)}
+                  onClick={checkForEmptyOrderNumber}
                 >
                   View Order
                 </Button>

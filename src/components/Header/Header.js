@@ -4,8 +4,6 @@ import Logo from './HeaderItem/Logo';
 import Dropdown from '../UI/Dropdown';
 
 const Header = () => {
-  // TODO: Update account avatar.
-  // TODO: Change header for mobile devices.
   return (
     <header>
       <nav className="sm:hidden bg-primary">
