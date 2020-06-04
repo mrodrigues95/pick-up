@@ -23,7 +23,7 @@ const Deploy = ({ history }) => {
   // TODO: Employee names needs to be pulled in from Firebase instead of
   // being static like this.
   const currentStatus = ['Processing', 'Quality Check', 'Ready'];
-  const employeeNames = ['Marcus', 'Joe', 'Jack'];
+  const employeeNames = ['John', 'Joe', 'Jack'];
 
   const { currentUser } = useContext(AuthContext);
 
