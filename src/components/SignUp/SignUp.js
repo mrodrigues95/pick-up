@@ -15,9 +15,19 @@ const SignUp = ({ history }) => {
   // TODO: Handle exisiting account errors.
   const signUpHandler = useCallback(async () => {
     try {
+      const db = firebase.firestore();
       await firebase
         .auth()
-        .createUserWithEmailAndPassword(account.email, account.password);
+        .createUserWithEmailAndPassword(account.email, account.password)
+        // Documents need fields in order to exist within Firebase and to perform queries.
+        // Without setting this, the rest of the app will not be able to query anything
+        // and Firebase will indicate that this document does not exist.
+        // So, an empty field is set to avoid this.
+        .then(() => {
+          db.collection('users')
+            .doc(account.email)
+            .set({})
+        });
       history.push('/orders');
     } catch (error) {
       console.log(error);
