@@ -41,12 +41,12 @@ npm install
 2. Create your account
 3. Start deploying your orders right away
 4. Every order you deploy will be generated with a unique key that you will give to your customers
-5. Unique keys can be found by going to the orders page and selecting an order from the table.
+5. Unique keys can be found by going to the orders page and selecting an order from the table
 
 
 ### Customers
 1. Visit [pick.up](https://pickup-prod.netlify.app/)
-2. Enter the unique key provided to you by the store you purchased an order from
+2. Enter the unique key provided to you by the store you purchased from
 
 
 
